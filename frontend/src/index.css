@@ -6,8 +6,362 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
   color: #1a1a1a;
   background-color: #f7f9fa;
   line-height: 1.5;
+}
+
+/* ── Page layout ──────────────────────────────────── */
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ── Form ────────────────────────────────────────── */
+
+.audience-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label,
+.condition-field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='datetime-local'],
+select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #fff;
+  color: #1a1a1a;
+  width: 100%;
+  max-width: 400px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #4a7cf6;
+  outline-offset: 1px;
+  border-color: #4a7cf6;
+}
+
+/* ── Conditions fieldset ─────────────────────────── */
+
+.conditions-section {
+  border: 1px solid #dde1e7;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0;
+  background: #fff;
+}
+
+.conditions-section legend {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #333;
+  padding: 0 6px;
+}
+
+.condition-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.condition-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.condition-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.condition-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.condition-field input,
+.condition-field select {
+  max-width: 140px;
+}
+
+.condition-remove {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 2px;
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+
+.btn-add-condition {
+  margin-top: 16px;
+  padding: 7px 14px;
+  background: none;
+  border: 1px dashed #aaa;
+  border-radius: 6px;
+  color: #444;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.btn-add-condition:hover {
+  border-color: #4a7cf6;
+  color: #4a7cf6;
+  background-color: #f0f4ff;
+}
+
+.btn-remove {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-remove:hover:not(:disabled) {
+  border-color: #e53e3e;
+  color: #e53e3e;
+  background: #fff5f5;
+}
+
+.btn-remove:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn-preview {
+  align-self: flex-start;
+  padding: 10px 22px;
+  background-color: #4a7cf6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-preview:hover:not(:disabled) {
+  background-color: #3563d9;
+}
+
+.btn-preview:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-retry {
+  margin-top: 8px;
+  padding: 7px 16px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.btn-retry:hover {
+  border-color: #4a7cf6;
+  color: #4a7cf6;
+}
+
+/* ── Validation error ────────────────────────────── */
+
+.error-message {
+  margin: 0;
+  padding: 10px 14px;
+  background: #fff5f5;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  color: #b91c1c;
+  font-size: 0.875rem;
+}
+
+/* ── API error ───────────────────────────────────── */
+
+.api-error {
+  margin-top: 28px;
+  padding: 16px 20px;
+  background: #fff5f5;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+}
+
+.api-error-heading {
+  margin: 0 0 4px;
+  font-weight: 700;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+.api-error-message {
+  margin: 0;
+  color: #7f1d1d;
+  font-size: 0.875rem;
+}
+
+/* ── Results ─────────────────────────────────────── */
+
+.results {
+  margin-top: 36px;
+  border-top: 2px solid #e5e7eb;
+  padding-top: 28px;
+}
+
+.results h2 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.results-total {
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.results-total-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
+}
+
+.results-total-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.results-empty {
+  margin: 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.member-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.member-item {
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.member-id {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.evidence-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.evidence-item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  background: #f7f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  min-width: 120px;
+}
+
+.evidence-event {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.evidence-count {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .condition-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .condition-field input,
+  .condition-field select,
+  input[type='text'],
+  input[type='datetime-local'] {
+    max-width: 100%;
+  }
+
+  .btn-remove {
+    width: 100%;
+  }
 }
