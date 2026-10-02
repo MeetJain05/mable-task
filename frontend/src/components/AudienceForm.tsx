@@ -71,7 +71,7 @@ export default function AudienceForm() {
         const updated = { ...next[index] };
         if (field === 'count' || field === 'withinDays') {
           const parsed = Number(value);
-          (updated[field] as number) = Number.isNaN(parsed) ? 0 : Math.floor(parsed);
+          (updated[field] as number) = Number.isNaN(parsed) ? 0 : parsed;
         } else {
           (updated[field] as string) = value as string;
         }
