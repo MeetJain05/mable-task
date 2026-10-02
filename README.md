@@ -34,6 +34,7 @@ Available scripts in `backend/`:
 - `npm run dev`: Start development server with live reload
 - `npm run build`: Compile TypeScript to `dist/`
 - `npm test`: Run test suite with Vitest
+- `npm run db:seed`: Initialize SQLite schema and seed synthetic events
 
 ### Frontend
 
